@@ -41,7 +41,7 @@ class DtekUpdateCoordinator(DataUpdateCoordinator):
             if isinstance(raw_cookies, list):
                 cookies_dict = {cookie["name"]: cookie["value"] for cookie in raw_cookies}
             else:
-                cookies_dict = raw_cookies # На випадок, якщо функція вже повертає словник
+                cookies_dict = raw_cookies
 
             # 2. Налаштовуємо сесію
             headers = {
@@ -64,23 +64,22 @@ class DtekUpdateCoordinator(DataUpdateCoordinator):
 
             # 3. Використовуємо сесію в DtekClient
             async with DtekClient(
-                self.site_key, 
-                ajax_url=f"{self.base_url}/ua/ajax", 
+                self.site_key,
+                ajax_url=f"{self.base_url}/ua/ajax",
                 session=session
             ) as client:
-                
                 group_info = await client.get_group_by_address(
                     city=self.city,
                     street=self.street,
                     house_number=self.house
                 )
-                
+
                 schedule = await client.get_today_schedule(
                     city=self.city,
                     street=self.street,
                     house_number=self.house
                 )
-                
+
                 return {
                     "group": group_info,
                     "schedule": schedule
@@ -89,4 +88,4 @@ class DtekUpdateCoordinator(DataUpdateCoordinator):
         except DtekClientError as err:
             raise UpdateFailed(f"Помилка оновлення даних DTEK: {err}")
         except Exception as err:
-            raise UpdateFailed(f"Непередбачена помилка: {err}") 
+            raise UpdateFailed(f"Непередбачена помилка: {err}")
