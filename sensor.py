@@ -2,6 +2,8 @@ import logging
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers.entity import DeviceInfo
+
 
 from .const import DOMAIN
 
@@ -32,12 +34,31 @@ class DtekGroupSensor(CoordinatorEntity, SensorEntity):
         self._attr_name = f"Черга відключень ({conf['house']})"
         self._attr_icon = "mdi:home-lightning-bolt-outline"
 
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, address_id)},
+            name=f"DTEK {conf['city']}, {conf['street']}, {conf['house']}",
+            manufacturer="DTEK",
+            model="Blackout Schedule"
+        )
+
     @property
     def native_value(self):
         """Повертає назву групи (наприклад, 'Черга планових відключень 3.1')."""
         if self.coordinator.data and "group" in self.coordinator.data:
             return self.coordinator.data["group"].group_display_name
         return "Невідомо"
+
+    @property
+    def extra_state_attributes(self):
+        """Додавання атрибутів до сенсорів."""
+        attrs = {}
+        if self.coordinator.data and "group" in self.coordinator.data:
+            group_data = self.coordinator.data["group"]
+            attrs["group_id"] = group_data.group_id
+            attrs["city"] = group_data.city
+            attrs["street"] = group_data.street
+        return attrs
+
 
 
 class DtekScheduleSensor(CoordinatorEntity, SensorEntity):
@@ -51,6 +72,22 @@ class DtekScheduleSensor(CoordinatorEntity, SensorEntity):
         self._attr_name = f"Графік відключень ({conf['house']})"
         self._attr_icon = "mdi:calendar-clock"
 
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, address_id)}
+        )
+
     @property
     def native_value(self):
         return "Оновлено"
+
+    @property
+    def extra_state_attributes(self):
+        """Розширені атрибути: передача всього денного розкладу по слотах."""
+        attrs = {}
+        if self.coordinator.data and "schedule" in self.coordinator.data:
+            schedule = self.coordinator.data["schedule"]
+            if schedule:
+                # Перетворюємо об'єкти SlotStatus у їх текстове представлення (YES, NO, MAYBE тощо)
+                for time_slot, status in schedule.items():
+                    attrs[time_slot] = status.name
+        return attrs
