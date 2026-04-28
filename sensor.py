@@ -1,5 +1,10 @@
 import logging
 
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+
+
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.entity import DeviceInfo
@@ -10,7 +15,10 @@ from .const import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 
-def setup_platform(hass, config, add_entities, discovery_info=None):
+def setup_platform(hass: HomeAssistant,
+                   config: ConfigType,
+                   add_entities: AddEntitiesCallback,
+                   discovery_info: DiscoveryInfoType | None = None):
     """Налаштування сенсорів DTEK."""
     coordinator = hass.data[DOMAIN]["coordinator"]
     conf = hass.data[DOMAIN]["config"]
