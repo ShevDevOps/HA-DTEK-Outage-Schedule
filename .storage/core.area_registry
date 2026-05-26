@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "minor_version": 6,
+  "key": "core.area_registry",
+  "data": {
+    "areas": [
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": null,
+        "id": "vitalnia",
+        "labels": [],
+        "name": "Вітальня",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-05-13T06:46:26.292274+00:00",
+        "modified_at": "2026-05-13T06:46:26.292279+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": null,
+        "id": "kukhnia",
+        "labels": [],
+        "name": "Кухня",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-05-13T06:46:26.292421+00:00",
+        "modified_at": "2026-05-13T06:46:26.292423+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": null,
+        "id": "spalnia",
+        "labels": [],
+        "name": "Спальня",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-05-13T06:46:26.292478+00:00",
+        "modified_at": "2026-05-13T06:46:26.292481+00:00"
+      }
+    ]
+  }
+}

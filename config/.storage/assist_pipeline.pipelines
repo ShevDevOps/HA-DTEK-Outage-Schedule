@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "assist_pipeline.pipelines",
+  "data": {
+    "items": [
+      {
+        "conversation_engine": "homeassistant",
+        "conversation_language": "uk",
+        "id": "01ksdavh09g0mgytnwkmnmw9aw",
+        "language": "uk",
+        "name": "Home Assistant",
+        "stt_engine": null,
+        "stt_language": null,
+        "tts_engine": "cloud",
+        "tts_language": "uk-UA",
+        "tts_voice": "PolinaNeural",
+        "wake_word_entity": null,
+        "wake_word_id": null
+      }
+    ],
+    "preferred_item": "01ksdavh09g0mgytnwkmnmw9aw"
+  }
+}

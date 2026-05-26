@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace",
+  "data": {
+    "config": {
+      "title": "Головна",
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Home",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "person.ivan"
+              ]
+            },
+            {
+              "type": "weather-forecast",
+              "entity": "weather.forecast_golovna",
+              "show_forecast": false
+            },
+            {
+              "type": "custom:dtek-outage-card",
+              "autodetect": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
