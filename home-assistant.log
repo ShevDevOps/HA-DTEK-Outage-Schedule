@@ -1,9 +1,0 @@
-2026-05-24 14:45:19.181 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration dtek_outage which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-24 14:45:19.460 WARNING (MainThread) [homeassistant.helpers.translation] Failed to load integration for translation: Integration 'go2rtc' not found.
-2026-05-24 14:45:21.123 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
-2026-05-24 14:45:24.722 ERROR (MainThread) [homeassistant.setup] Setup failed for 'go2rtc': Integration not found.
-2026-05-24 14:45:24.764 ERROR (MainThread) [homeassistant.config_entries] Error importing platform config_flow from integration backup to set up backup configuration entry: No module named 'homeassistant.components.backup.config_flow'
-2026-05-24 14:45:34.375 WARNING (MainThread) [homeassistant.bootstrap] Support for the running Python version 3.11.15 is deprecated and will be removed in Home Assistant 2024.4; Please upgrade Python to 3.12
-2026-05-24 14:45:34.384 WARNING (Recorder) [homeassistant.components.recorder.migration] Database is about to upgrade from schema version: 53 to: 42
-2026-05-24 14:45:34.393 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=73 from 2026-05-18 10:32:15.398528)
-2026-05-24 14:45:34.719 ERROR (MainThread) [aiodhcpwatcher] Cannot watch for dhcp packets without a functional packet filter: libpcap is not available. Cannot compile filter !
