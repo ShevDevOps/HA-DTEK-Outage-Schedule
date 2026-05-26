@@ -1,0 +1,14 @@
+{
+  "domain": "dtek_outage",
+  "name": "DTEK Outage Schedule",
+  "version": "1.0.0",
+  "codeowners": [
+    "@ShevDevOps"
+  ],
+  "documentation": "https://github.com/ShevDevOps/HA-DTEK-Outage-Schedule",
+  "issue_tracker": "https://github.com/ShevDevOps/HA-DTEK-Outage-Schedule/issues",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "dependencies": [],
+  "requirements": ["curl_cffi>=0.5.10", "pydantic>=2.0.0", "playwright>=1.40.0"]
+}
